@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import axios from 'axios';
 
 const useFetchBitcoinData = (updateInterval) => {
   const [data, setData] = useState([]);
@@ -8,45 +7,35 @@ const useFetchBitcoinData = (updateInterval) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('https://api.coindesk.com/v1/bpi/currentprice.json');
-        const newData = {
-          time: new Date(response.data.time.updatedISO).toLocaleTimeString(),
-          USD: response.data.bpi.USD.rate_float,
-          GBP: response.data.bpi.GBP.rate_float,
-          EUR: response.data.bpi.EUR.rate_float,
-        };
-
-        setData(prevData => {
-          if (prevData.length >= 10) {
-            return [...prevData.slice(1), newData];
-          } else {
-            return [...prevData, newData];
-          }
-        });
+        const response = await fetch('https://api.coindesk.com/v1/bpi/currentprice.json');
+        const result = await response.json();
+        const { bpi, time } = result;
+        setData((prevData) => [
+          ...prevData.slice(-9), // Keep only the last 10 data points
+          { USD: bpi.USD.rate_float, GBP: bpi.GBP.rate_float, EUR: bpi.EUR.rate_float, time: time.updatedISO },
+        ]);
       } catch (error) {
         console.error('Error fetching data:', error);
       }
     };
 
     fetchData();
-    const intervalId = setInterval(() => {
+    const interval = setInterval(() => {
       fetchData();
-      setNextUpdateInSeconds(updateInterval); // Reset the countdown timer
+      setNextUpdateInSeconds(updateInterval);
     }, updateInterval * 1000);
 
-    return () => clearInterval(intervalId);
-  }, [updateInterval]);
-
-  useEffect(() => {
-    const countdownInterval = setInterval(() => {
-      setNextUpdateInSeconds(prevSeconds => (prevSeconds > 1 ? prevSeconds - 1 : updateInterval));
+    const countdown = setInterval(() => {
+      setNextUpdateInSeconds((prev) => (prev > 0 ? prev - 1 : 0));
     }, 1000);
 
-    return () => clearInterval(countdownInterval);
+    return () => {
+      clearInterval(interval);
+      clearInterval(countdown);
+    };
   }, [updateInterval]);
 
   return { data, nextUpdateInSeconds };
 };
 
 export default useFetchBitcoinData;
-
