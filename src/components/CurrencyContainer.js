@@ -2,7 +2,7 @@ import React from 'react';
 import CurrencyBox from './CurrencyBox';
 import './CurrencyContainer.css';
 
-const CurrencyContainer = ({ data, amount, onInputChange }) => {
+const CurrencyContainer = ({ data, amount, onInputChange, onBoxClick }) => {
   return (
     <div className="currency-container">
       {data.length > 0 && ['USD', 'GBP', 'EUR'].map((currency) => (
@@ -12,6 +12,7 @@ const CurrencyContainer = ({ data, amount, onInputChange }) => {
           rate={data[data.length - 1][currency]} // Use the latest rate
           amount={amount}
           onInputChange={onInputChange}
+          onBoxClick={onBoxClick}
         />
       ))}
     </div>
@@ -19,3 +20,4 @@ const CurrencyContainer = ({ data, amount, onInputChange }) => {
 };
 
 export default CurrencyContainer;
+
