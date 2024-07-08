@@ -1,0 +1,22 @@
+.currency-box {
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+  
+  .currency-box h2 {
+    margin: 0 0 10px;
+  }
+  
+  .currency-box p {
+    margin: 10px 0;
+  }
+  
+  .currency-box input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    box-sizing: border-box;
+  }
+  
