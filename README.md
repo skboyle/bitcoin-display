@@ -1,70 +1,65 @@
-# Getting Started with Create React App
+# Bitcoin Display
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A React application that displays Bitcoin prices and trends using Recharts. The application fetches Bitcoin price data every 30 seconds and displays it in a line chart.
 
-## Available Scripts
+## Getting Started
 
-In the project directory, you can run:
+Follow these instructions to set up the project on your local machine for development and testing purposes.
 
-### `npm start`
+### Prerequisites
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Ensure you have the following installed on your local development machine:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- Node.js (v12 or later)
+- npm (v6 or later)
 
-### `npm test`
+### Installation
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Clone the repository and install the dependencies.
 
-### `npm run build`
+```
+git clone https://github.com/your-username/bitcoin-display.git
+cd bitcoin-display
+npm install
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Running the Application
+To start the application, run:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```
+npm start
+```
 
-### `npm run eject`
+The application will run on http://localhost:3000.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Scripts
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Here are the scripts available in the project:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- `npm start`: Starts the development server.
+- `npm build`: Builds the application for production.
+- `npm test`: Runs the test suite.
+- `npm eject`: Ejects the configuration (not recommended).
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Dependencies
 
-## Learn More
+Key dependencies used in this project include:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- React: ^18.3.1
+- Axios: ^1.7.2
+- Recharts: ^2.12.7
+- Jest: ^29.7.0 (for testing)
+- @testing-library/react: ^13.4.0 (for testing)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Testing
 
-### Code Splitting
+This project uses Jest and React Testing Library for testing.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### Running Tests
 
-### Analyzing the Bundle Size
+To run the tests, use:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```
+npm test
+```
