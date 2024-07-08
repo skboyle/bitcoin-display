@@ -45,5 +45,9 @@
     "transformIgnorePatterns": [
       "/node_modules/(?!axios)/"
     ]
+  },
+  "devDependencies": {
+    "babel-jest": "^29.7.0",
+    "jest-fetch-mock": "^3.0.3"
   }
 }
