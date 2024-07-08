@@ -2,6 +2,9 @@
 
 A React application that displays Bitcoin prices and trends using Recharts. The application fetches Bitcoin price data every 30 seconds and displays it in a line chart.
 
+## Live Demo
+Check out the live demo [here](https://skboyle.github.io/bitcoin-display).
+
 ## Getting Started
 
 Follow these instructions to set up the project on your local machine for development and testing purposes.
